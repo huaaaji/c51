@@ -1,0 +1,5 @@
+".\Objects\LCD1602.obj",
+".\Objects\main.obj",
+".\Objects\MatrixKey.obj" 
+TO ".\Objects\2024.10.4 ¾ØÕó°´¼ü²âÊÔ" 
+PRINT(".\Listings\2024.10.4 ¾ØÕó°´¼ü²âÊÔ.m51") RAMSIZE(256) 

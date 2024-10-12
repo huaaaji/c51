@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\delytime.obj" 
+TO ".\Objects\2024.9.30" 
+PRINT(".\Listings\2024.9.m51") RAMSIZE(256) 

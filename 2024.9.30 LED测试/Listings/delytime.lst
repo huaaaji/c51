@@ -1,0 +1,38 @@
+C51 COMPILER V9.60.7.0   DELYTIME                                                          10/01/2024 00:17:02 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DELYTIME
+OBJECT MODULE PLACED IN .\Objects\delytime.obj
+COMPILER INVOKED BY: N:\download2023\Keil_v5\C51\BIN\C51.EXE delytime.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRIN
+                    -T(.\Listings\delytime.lst) TABS(2) OBJECT(.\Objects\delytime.obj)
+
+line level    source
+
+   1          void delytime(unsigned int xms)//@12.000MHz
+   2          {
+   3   1        while (xms--)
+   4   1        {
+   5   2          unsigned char i, j;
+   6   2      
+   7   2          i = 12;
+   8   2          j = 169;
+   9   2          do
+  10   2          {
+  11   3            while (--j);
+  12   3          } while (--i);
+  13   2        }
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

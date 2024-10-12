@@ -1,0 +1,73 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              10/06/2024 22:14:16 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: N:\download2023\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Objects\LCD1602.h)
+                    - DEBUG OBJECTEXTEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "LCD1602.h"
+   3          #include "MatrixKey.h"
+   4          unsigned char a,at;
+   5          char ii;
+   6          unsigned char password[4] = {0x00,0x00,0x00,0x00},pass[4]={2,0,2,3};
+   7          
+   8          void main()
+   9          { 
+  10   1        LCD_Init();
+  11   1        LCD_ShowString(1,1,"Passwords:");
+  12   1        for(ii=0;ii<4;ii++)
+  13   1        {
+  14   2          a = m_key();
+  15   2          if(KeyNumber(a)==11)//实现退格
+  16   2          {
+  17   3            LCD_ShowString(2,ii," ");
+  18   3            ii-=2;
+  19   3          }
+  20   2          else
+  21   2          {
+  22   3            password[ii]=(KeyNumber(a))%10;
+  23   3            LCD_ShowNum(2,ii+1,password[ii],1);
+  24   3          }
+  25   2        }
+  26   1        while(1)//输入结束
+  27   1        {
+  28   2          a = m_key();
+  29   2          if (KeyNumber(a)==11)//重启下轮输入
+  30   2          {
+  31   3            break;
+  32   3          }
+  33   2          if (KeyNumber(a)==12)//检查密码
+  34   2          {
+  35   3            for(ii=0;ii<4;ii++)
+  36   3            {
+  37   4              if ((password[ii]&0x0F)!=pass[ii])
+  38   4              {
+  39   5                LCD_ShowString(1,13,"ERR");
+  40   5                break;
+  41   5              }
+  42   4              LCD_ShowString(1,13,"   ");
+  43   4              LCD_ShowString(1,13,"GO");
+  44   4            }
+  45   3          }
+  46   2        }
+  47   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    195    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.7.0   MAIN                                                              10/06/2024 22:14:16 PAGE 2   
+
+   DATA SIZE        =     11    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
